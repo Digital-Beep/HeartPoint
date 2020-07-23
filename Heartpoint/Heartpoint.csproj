@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\references\tModLoader.targets" />
+  <PropertyGroup>
+    <AssemblyName>Heartpoint</AssemblyName>
+    <TargetFramework>net45</TargetFramework>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <Target Name="BuildMod" AfterTargets="Build">
+    <Exec Command="&quot;$(tMLBuildServerPath)&quot; -build $(ProjectDir) -eac $(TargetPath) -define &quot;$(DefineConstants)&quot; -unsafe $(AllowUnsafeBlocks)" />
+  </Target>
+  <ItemGroup>
+    <Compile Remove="Items\misc\**" />
+    <Compile Remove="Items\Placeables\**" />
+    <Compile Remove="Items\Tiles\**" />
+    <EmbeddedResource Remove="Items\misc\**" />
+    <EmbeddedResource Remove="Items\Placeables\**" />
+    <EmbeddedResource Remove="Items\Tiles\**" />
+    <None Remove="Items\misc\**" />
+    <None Remove="Items\Placeables\**" />
+    <None Remove="Items\Tiles\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="NPCs\Boss\unusedcode.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Items\Weapons\" />
+  </ItemGroup>
+</Project>
