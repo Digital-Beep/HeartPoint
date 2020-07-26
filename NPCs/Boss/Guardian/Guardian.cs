@@ -30,7 +30,7 @@ namespace heartpoint.NPCs.Boss.Guardian
             npc.width = 50;
             npc.height = 254;
             npc.lifeMax = 8000;
-            npc.damage = 55;
+            npc.damage = 30;
             bossBag = mod.ItemType("GuardianTreasureBag");
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/DEFUP");
         }

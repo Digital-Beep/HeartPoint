@@ -48,8 +48,29 @@ namespace Heartpoint.NPCs.enemy
 
         public override void NPCLoot()
         {
-            Item.NewItem(npc.position, ItemID.SmokeBomb, 5);
-            Item.NewItem(npc.position, ItemID.RottenEgg, 3);
+            
+            int choice = Main.rand.Next(5);
+            if (choice == 0)
+            {
+                Item.NewItem(npc.position, ItemID.NinjaHood, 1);
+            }
+            if (choice == 1)
+            {
+                Item.NewItem(npc.position, ItemID.NinjaPants, 1);
+            }
+            if (choice == 2)
+            {
+                Item.NewItem(npc.position, ItemID.NinjaShirt, 1);
+            }
+            if (choice == 3)
+            {
+                Item.NewItem(npc.position, ItemID.RottenEgg, 3);
+            }
+            if (choice == 4)
+            {
+                Item.NewItem(npc.position, ItemID.SmokeBomb, 5);
+            }
+
         }
     }
 }

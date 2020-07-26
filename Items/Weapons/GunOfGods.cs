@@ -13,7 +13,7 @@ namespace Heartpoint.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			item.damage = 10;
+			item.damage = 5;
 			item.ranged = true;
 			item.width = 70;
 			item.height = 70;

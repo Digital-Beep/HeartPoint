@@ -37,7 +37,7 @@ namespace Heartpoint.NPCs.Boss.Guardian
             }
             if (choice == 1)
             {
-                player.QuickSpawnItem(ItemID.PaladinsShield, 1);
+                player.QuickSpawnItem(ItemID.FrostsparkBoots, 1);
             }
             //and this is the items that will 100% drop from the treasure bag
             player.QuickSpawnItem(ItemID.Hellstone, 100);

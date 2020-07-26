@@ -35,7 +35,7 @@ namespace Heartpoint.Items.Weapons
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.CrimtaneBar, 15);
 			recipe.AddIngredient(ItemID.Book, 5);
-			recipe.AddTile(TileID.DemonAltar);
+			recipe.AddTile(TileID.Bookcases);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

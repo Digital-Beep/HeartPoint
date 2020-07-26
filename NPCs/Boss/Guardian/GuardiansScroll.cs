@@ -36,7 +36,7 @@ namespace Heartpoint.NPCs.Boss.Guardian
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.IronBar, 15);
+            recipe.AddRecipeGroup("IronBar", 15);
             recipe.AddIngredient(ItemID.Silk, 10);
             recipe.AddTile(TileID.DemonAltar);
             recipe.SetResult(this);

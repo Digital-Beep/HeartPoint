@@ -10,7 +10,6 @@ namespace Heartpoint.Items.Weapons
 			// DisplayName.SetDefault("TerraFrost"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
 			Tooltip.SetDefault("This the sword of the gods bloodshed.");
 		}
-
 		public override void SetDefaults() 
 		{
 			item.damage = 300;
@@ -27,7 +26,17 @@ namespace Heartpoint.Items.Weapons
             item.autoReuse = true;
 			item.melee = true;
 			item.shoot = ProjectileID.FrostBlastFriendly;
-		}
 
+		}
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.TerraBlade, 1);
+			recipe.AddIngredient(ItemID.StarWrath, 1);
+			recipe.AddIngredient(mod.GetItem("BladeOfFlesh"));
+			recipe.AddTile(TileID.DemonAltar);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
 	}
 }
