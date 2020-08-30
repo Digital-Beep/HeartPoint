@@ -9,9 +9,9 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace heartpoint.NPCs.Boss.Guardian
+namespace heartpoint.NPCs.Boss.TerraGuardian
 {
-    public class Guardian : ModNPC
+    public class TerraGuardian : ModNPC
     {
         Player target;
         public override void SetStaticDefaults()
@@ -28,9 +28,9 @@ namespace heartpoint.NPCs.Boss.Guardian
             npc.aiStyle = -1;
             npc.width = 50;
             npc.height = 254;
-            npc.lifeMax = 8000;
+            npc.lifeMax = 10000000;
             npc.damage = 57;
-            bossBag = mod.ItemType("GuardianTreasureBag");
+            bossBag = mod.ItemType("TerraGuardianTreasureBag");
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/DEFUP");
             npc.ichor = true;
         }
@@ -68,13 +68,13 @@ namespace heartpoint.NPCs.Boss.Guardian
             }
             else if (npc.ai[0] == 0.2f) // dash cooldown
             {
-                const int dashcooldown = 60;
+                const int dashcooldown = 5;
                 if (npc.ai[1]++ > dashcooldown)
                 {
                     npc.ai[0] = 0.3f;
                     npc.ai[1] = 0f;
                 }
-                npc.velocity *= 0.99f;
+                npc.velocity *= 1.2f;
             }
             // -stops and shoots fast pink lasers that when hit something it explodes in 6 smaller pink lasers that pass through walls and home into the player, dealing 2 times less damage than the normal pink laser
             else if (npc.ai[0] == 0.3f)
@@ -85,6 +85,15 @@ namespace heartpoint.NPCs.Boss.Guardian
                 {
                     Vector2 toPlayer = Vector2.UnitX.RotatedBy(npc.rotation - MathHelper.PiOver2) * 10;
                     Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.PinkLaser, npc.damage, 20, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.FlamingScythe, npc.damage, 20, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.ShadowBeamHostile, npc.damage, 20, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.SandnadoHostileMark, npc.damage, 20, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.Sharknado, npc.damage, 20, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.CursedFlameHostile, npc.damage, 20, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.CultistBossLightningOrbArc, npc.damage, 20, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.DeathLaser, npc.damage, 20, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.PhantasmalDeathray, npc.damage, 20, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.PaladinsHammerHostile, npc.damage, 20, Main.myPlayer);
                     npc.ai[2]++;
                     npc.ai[1] = 0;
                 }

@@ -30,7 +30,7 @@ namespace Heartpoint.NPCs.Boss.OscarEye
 
         public override void OpenBossBag(Player player)
         {                                         //below it's a choice from 3 items that will drop randomly
-            int choice = Main.rand.Next(2);
+            int choice = Main.rand.Next(3);
             if (choice == 0)
             {
                 player.QuickSpawnItem(mod.ItemType("OscarsSpirit"));
@@ -39,10 +39,15 @@ namespace Heartpoint.NPCs.Boss.OscarEye
             {
                 player.QuickSpawnItem(mod.ItemType("OscarsWrath"));
             }
+            if (choice == 2)
+            {
+                player.QuickSpawnItem(mod.ItemType("OscarsMinionStaff"));
+            }
             //and this is the items that will 100% drop from the treasure bag
             player.QuickSpawnItem(ItemID.Obsidian, 85);
             player.QuickSpawnItem(ItemID.Hellstone, 200);
             player.QuickSpawnItem(ItemID.SuperHealingPotion, 15);
+            player.QuickSpawnItem(ItemID.GoldCoin, 55);
         }
     }
 }

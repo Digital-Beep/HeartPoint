@@ -6,11 +6,11 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Heartpoint.NPCs.Boss.Guardian
+namespace Heartpoint.NPCs.Boss.MechanicalGuardian
 {
-    public class GuardianTreasureBag : ModItem
+    public class MGuardianTreasureBag : ModItem
     {
-        public override int BossBagNPC => mod.NPCType("Guardian");
+        public override int BossBagNPC => mod.NPCType("MechanicalGuardian");
 
         public override void SetStaticDefaults()
         {
@@ -33,18 +33,19 @@ namespace Heartpoint.NPCs.Boss.Guardian
             int choice = Main.rand.Next(3);
             if (choice == 0)
             {
-                player.QuickSpawnItem(ItemID.CobaltShield, 1);
+                player.QuickSpawnItem(ItemID.Arkhalis, 1);
             }
             if (choice == 1)
             {
-                player.QuickSpawnItem(mod.ItemType("WeirdSword"));
+                player.QuickSpawnItem(mod.ItemType("WeirderSword"));
             }
             if (choice == 2)
             {
                 player.QuickSpawnItem(mod.ItemType("GuardiansBuildingBlocks"));
             }
             //and this is the items that will 100% drop from the treasure bag
-            player.QuickSpawnItem(ItemID.Hellstone, 100);
+            player.QuickSpawnItem(ItemID.SoulofNight, 100);
+            player.QuickSpawnItem(ItemID.SoulofLight, 100);
             player.QuickSpawnItem(ItemID.GreaterHealingPotion, 15);
         }
     }

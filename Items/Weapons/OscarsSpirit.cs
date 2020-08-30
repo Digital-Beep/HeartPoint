@@ -27,7 +27,7 @@ namespace Heartpoint.Items.Weapons
             item.autoReuse = true;
             item.shoot = ProjectileID.SwordBeam;
             item.shootSpeed = 10f;
-			item.mana = 0;
+			item.mana = 5;
 		}
 
 		public override void AddRecipes() 

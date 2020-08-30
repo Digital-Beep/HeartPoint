@@ -6,11 +6,11 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Heartpoint.NPCs.Boss.Guardian
+namespace Heartpoint.NPCs.Boss.TerraGuardian
 {
-    public class GuardianTreasureBag : ModItem
+    public class TerraGuardianTreasureBag : ModItem
     {
-        public override int BossBagNPC => mod.NPCType("Guardian");
+        public override int BossBagNPC => mod.NPCType("TerraGuardian");
 
         public override void SetStaticDefaults()
         {

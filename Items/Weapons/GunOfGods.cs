@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace Heartpoint.Items.Weapons
 {
-	public class GunOfGods : ModItem
+	public class GunOfGods: ModItem
 	{
 		public override void SetStaticDefaults() 
 		{

@@ -9,14 +9,15 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace heartpoint.NPCs.Boss.Guardian
+namespace heartpoint.NPCs.Boss.MechanicalGuardian
 {
-    public class Guardian : ModNPC
+    public class MechanicalGuardian : ModNPC
     {
         Player target;
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[npc.type] = 8;
+            DisplayName.SetDefault("Mechanical Guardian");
         }
 
         public override void SetDefaults()
@@ -28,10 +29,9 @@ namespace heartpoint.NPCs.Boss.Guardian
             npc.aiStyle = -1;
             npc.width = 50;
             npc.height = 254;
-            npc.lifeMax = 8000;
-            npc.damage = 57;
-            bossBag = mod.ItemType("GuardianTreasureBag");
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/DEFUP");
+            npc.lifeMax = 90000;
+            npc.damage = 100;
+            bossBag = mod.ItemType("MGuardianTreasureBag");
             npc.ichor = true;
         }
 
@@ -59,22 +59,26 @@ namespace heartpoint.NPCs.Boss.Guardian
                 npc.rotation += npc.ai[2] += 0.005f;
                 if (npc.ai[1]++ > 90)
                 {
-                    npc.velocity = Vector2.Normalize(target.MountedCenter - npc.Center) * 10f;
+                    npc.velocity = Vector2.Normalize(target.MountedCenter - npc.Center) * 20f;
                     npc.rotation = npc.velocity.ToRotation() + MathHelper.PiOver2;
                     npc.ai[0] = 0.2f;
                     npc.ai[1] = 0f;
                     npc.ai[2] = 0f;
                 }
+
             }
+
+
+
             else if (npc.ai[0] == 0.2f) // dash cooldown
             {
-                const int dashcooldown = 60;
+                const int dashcooldown = 0;
                 if (npc.ai[1]++ > dashcooldown)
                 {
                     npc.ai[0] = 0.3f;
                     npc.ai[1] = 0f;
                 }
-                npc.velocity *= 0.99f;
+                npc.velocity *= 1.50f;
             }
             // -stops and shoots fast pink lasers that when hit something it explodes in 6 smaller pink lasers that pass through walls and home into the player, dealing 2 times less damage than the normal pink laser
             else if (npc.ai[0] == 0.3f)
@@ -84,7 +88,8 @@ namespace heartpoint.NPCs.Boss.Guardian
                 if (npc.ai[1]++ > 2)
                 {
                     Vector2 toPlayer = Vector2.UnitX.RotatedBy(npc.rotation - MathHelper.PiOver2) * 10;
-                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.PinkLaser, npc.damage, 20, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.PinkLaser, npc.damage, 50, Main.myPlayer, BuffID.Electrified, 600f);
+                    Projectile.NewProjectile(npc.Center, toPlayer, ProjectileID.EyeLaser, npc.damage, 10, Main.myPlayer, BuffID.Electrified, 600f);
                     npc.ai[2]++;
                     npc.ai[1] = 0;
                 }
@@ -153,10 +158,11 @@ namespace heartpoint.NPCs.Boss.Guardian
             {
 
                 Rectangle r = npc.getRect();
-                Item.NewItem(r, ItemID.LeadBar, 100);
+                Item.NewItem(r, ItemID.SoulofLight, 100);
+                Item.NewItem(r, ItemID.SoulofNight, 100);
                 if (Main.rand.NextBool(4))
-                    Item.NewItem(r, ItemID.HealingPotion, 15);
-                Item.NewItem(r, ItemID.GoldCoin, 30);
+                    Item.NewItem(r, ItemID.GreaterHealingPotion, 15);
+                Item.NewItem(r, ItemID.GoldCoin, 70);
                 int choice = Main.rand.Next(2);
             }
         }

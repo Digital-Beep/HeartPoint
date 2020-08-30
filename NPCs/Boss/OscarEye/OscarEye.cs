@@ -45,7 +45,7 @@ namespace Heartpoint.NPCs.Boss.OscarEye
                 npc.frame.Y = 0;
             }
         }
-        public override void NPCLoot()
+    public override void NPCLoot()
         {
             if (Main.expertMode)
             {
@@ -56,6 +56,7 @@ namespace Heartpoint.NPCs.Boss.OscarEye
                 Item.NewItem(r, ItemID.Hellstone, 200);
                 if (Main.rand.NextBool(4))
                 Item.NewItem(r, ItemID.Obsidian, 85);
+                Item.NewItem(r, ItemID.GoldCoin, 55);
             }
         }
     }

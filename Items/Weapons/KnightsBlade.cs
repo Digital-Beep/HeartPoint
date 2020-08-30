@@ -8,7 +8,7 @@ namespace Heartpoint.Items.Weapons
 		public override void SetStaticDefaults() 
 		{
 			// DisplayName.SetDefault("KnightsBlade"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-			Tooltip.SetDefault("This is a knights sword.");
+			Tooltip.SetDefault("This is a knights sword Totally not the tutorial sword not at all.");
 		}
 
 		public override void SetDefaults() 

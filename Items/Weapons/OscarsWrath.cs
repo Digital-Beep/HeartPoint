@@ -22,7 +22,7 @@ namespace Heartpoint.Items.Weapons
 			item.useStyle = 1;
 			item.knockBack = 3;
 			item.value = 100000;
-			item.rare = -12;
+			item.rare = 12;
 			item.UseSound = SoundID.Item1;
             item.autoReuse = true;
 			item.melee = true;
